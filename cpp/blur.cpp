@@ -13,18 +13,17 @@ int main (int argc, char *argv[]) {
 
     std::string input_filepath = argv[1];
 
-
     cv::Mat image = cv::imread(input_filepath, 0);
 
     cv::Mat kernel = cv::Mat(3, 3, 0, cv::Scalar(1));
     Filter2D filter = Filter2D(kernel);
 
     cv::Mat out;
-
     filter.apply(image, out);
 
-    cv::imshow("Framw", out);
     cv::imshow("In", image);
+    cv::imshow("Out", out);
+    
     cv::waitKey(0);
     cv::destroyAllWindows();
 

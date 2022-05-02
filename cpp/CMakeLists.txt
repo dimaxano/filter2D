@@ -4,7 +4,7 @@ project(filter2D)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(OpenCV 4)
+find_package(OpenCV)
 if(NOT OpenCV_FOUND)
     message(FATAL_ERROR "OpenCV >= 4 not found")
 endif()
