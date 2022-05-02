@@ -16,6 +16,7 @@ void Filter2D::apply(cv::InputArray image, cv::OutputArray out){
 
     const int kernel_h_2 = kernel_size_ / 2;
     const int kernel_w_2 = kernel_size_ / 2;
+    const float kernel_sum = cv::sum(kernel_).val[0];
 
     cv::Mat image_mat = image.getMat();
     
@@ -42,9 +43,7 @@ void Filter2D::apply(cv::InputArray image, cv::OutputArray out){
             }
     }
     
-    // std::cout << "Value " << value << std::endl;
-
-    out_mat.at<uchar>(y, x) = value / 9;
+    out_mat.at<uchar>(y, x) = value / kernel_sum;
 
     }
 }
